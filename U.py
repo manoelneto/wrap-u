@@ -7,7 +7,7 @@ class UCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         sels = self.view.sel()
         edit = self.view.begin_edit()
-        integ_re = re.compile(r'\d+')
+        integ_re = re.compile(r'\-?\d+')
         u_re = re.compile(r'^u\(([^\)]+)\)$')
 
         for sel in sels:

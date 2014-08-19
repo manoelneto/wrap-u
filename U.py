@@ -6,7 +6,6 @@ import re
 class UCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         sels = self.view.sel()
-        edit = self.view.begin_edit()
         integ_re = re.compile(r'\-?\d+')
         u_re = re.compile(r'^u\(([^\)]+)\)$')
 
@@ -25,4 +24,3 @@ class UCommand(sublime_plugin.TextCommand):
                     pass
                 new_content = 'u(%s)' % (content,)
             self.view.replace(edit, sel, new_content)
-        self.view.end_edit(edit)
